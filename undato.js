@@ -1,36 +1,34 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-database.js";
 
-
 const firebaseConfig = {
-  apiKey: "AIzaSyAAaCZcaNOyu0EYS9cPS-_St5wpr9qdris",
-    authDomain: "fir-clase1-9a13f.firebaseapp.com",
-    databaseURL: "https://fir-clase1-9a13f-default-rtdb.firebaseio.com/",
-    projectId: "fir-clase1-9a13f",
-    storageBucket: "fir-clase1-9a13f.firebasestorage.appp",
-    messagingSenderId: "370078380745",
-    appId: "1:370078380745:web:3d6cc2aad5d34183cb1318"
+    apiKey: "AIzaSyBYdKwms_YS97E6BUuSuGdSoRy1dD4lUr4",
+    authDomain: "proyectohuertalmms.firebaseapp.com",
+    databaseURL: "https://proyectohuertalmms-default-rtdb.firebaseio.com",
+    projectId: "proyectohuertalmms",
+    storageBucket: "proyectohuertalmms.firebasestorage.app",
+    messagingSenderId: "940351629789",
+    appId: "1:940351629789:web:b26125b82bb54d0c23ee34"
 };
-
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-const refDatos = ref(db, "huerta");
 
-let pSuelo = document.querySelector("#suelo");
-let pAire = document.querySelector("#aire");
+let sueloSpan = document.querySelector("#suelo");
+let aireSpan = document.querySelector("#aire");
+let tempSpan = document.querySelector("#temp");
 
+const refSensores = ref(db, "sensores");
 
-onValue(refDatos, (snapshot) => {
-  const huerta = snapshot.val();
-  console.log(huerta);
+onValue(refSensores, (datos) => {
+    let sensor = datos.val();
 
-  if (huerta) {
-    pSuelo.textContent = ` Suelo Temperatura: ${huerta.tempSuelo}°C | Humedad: ${huerta.humSuelo}%`;
-    pAire.textContent = ` Aire Temperatura: ${huerta.tempAire}°C | Humedad: ${huerta.humAire}%`;
-  } else {
-    pSuelo.textContent = "Sin datos disponibles de suelo.";
-    pAire.textContent = "Sin datos disponibles de aire.";
-  }
+    let humedadSuelo = sensor.humedadSuelo;
+    let humedadAire = sensor.humedadAire;
+    let temperatura = sensor.temperatura;
+
+    sueloSpan.textContent = `${humedadSuelo}%`;
+    aireSpan.textContent = `${humedadAire}%`;
+    tempSpan.textContent = `${temperatura}°C`;
 });

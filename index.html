@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Datos de la Huerta</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Monitor de Huerta</title>
+
+    
 </head>
 <body>
-  <div class="form">
-    <h1>Lectura de datos de la huerta </h1>
-    <p id="suelo">Esperando datos del suelo...</p>
-    <p id="aire">Esperando datos del aire...</p>
-  </div>
+<header> Huerta Inteligente</header>
 
-  <script type="module" src="undato.js"></script>
+
+<div class="form">
+<div class="tarjeta">
+<h2>Datos de la huerta</h2>
+
+
+<div class="dato"><span> Temperatura:</span> <span id="temp">--</span></div>
+<div class="dato"><span> Humedad del Suelo:</span> <span id="suelo">--</span></div>
+<div class="dato"><span> Humedad del Aire:</span> <span id="aire">--</span></div>
+
+
+<div class="estado">
+<p>Estado General</p>
+<div class="indicador" id="indicador"></div>
+
+
+
+<footer>© 2025 Huerta Inteligente — Datos en tiempo real</footer>
+
+    
+    <script type="module" src="undato.js"></script>
+
 </body>
 </html>
