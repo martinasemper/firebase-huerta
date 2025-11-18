@@ -19,6 +19,10 @@ let sueloSpan = document.querySelector("#suelo");
 let aireSpan = document.querySelector("#aire");
 let tempSpan = document.querySelector("#temp");
 
+
+let barra = document.querySelector("#barra-estado");
+let alertaTexto = document.querySelector("#alerta-texto");
+
 const refSensores = ref(db, "sensores");
 
 onValue(refSensores, (datos) => {
@@ -28,7 +32,32 @@ onValue(refSensores, (datos) => {
     let humedadAire = sensor.humedadAire;
     let temperatura = sensor.temperatura;
 
+    
     sueloSpan.textContent = `${humedadSuelo}%`;
     aireSpan.textContent = `${humedadAire}%`;
     tempSpan.textContent = `${temperatura}°C`;
+
+    
+    barra.style.width = humedadSuelo + "%";
+
+    
+    if (humedadSuelo < 30) {
+        barra.style.background = "red";
+        alertaTexto.textContent = "La planta necesita agua ¡Regarla!";
+        alertaTexto.style.color = "red";
+
+        
+        alert("La planta necesita agua");
+    }
+    else if (humedadSuelo < 60) {
+        barra.style.background = "orange";
+        alertaTexto.textContent = "La planta está en nivel medio de humedad";
+        alertaTexto.style.color = "orange";
+    }
+    else {
+        barra.style.background = "green";
+        alertaTexto.textContent = "La planta está bien hidratada";
+        alertaTexto.style.color = "green";
+    }
 });
+

@@ -4,13 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Monitor de Huerta</title>
+    <title>Huerta</title>
 
     
 </head>
 <body>
-<header> Huerta Inteligente</header>
 
+    <nav class="navbar">
+    <div class="titulo">Huerta Inteligente</div>
+</nav>
+<div id="barra-container">
+    <div id="barra-estado"></div>
+</div>
+
+
+<p id="alerta-texto"></p>
 
 <div class="form">
 <div class="tarjeta">
@@ -21,14 +29,7 @@
 <div class="dato"><span> Humedad del Suelo:</span> <span id="suelo">--</span></div>
 <div class="dato"><span> Humedad del Aire:</span> <span id="aire">--</span></div>
 
-
-<div class="estado">
-<p>Estado General</p>
-<div class="indicador" id="indicador"></div>
-
-
-
-<footer>© 2025 Huerta Inteligente — Datos en tiempo real</footer>
+<footer>Martina Semper Labatte - Huerta Inteligente</footer>
 
     
     <script type="module" src="undato.js"></script>

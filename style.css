@@ -7,13 +7,25 @@ background-size: 20px 20px;
 color: #2e4630;
 }
 
+#barra-container {
+    width: 200px;
+    height: 20px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
 
-header {
-padding: 18px 30px;
-font-size: 20px;
-font-weight: 600;
-letter-spacing: 0.5px;
-color: #2f5d3a;
+#barra-estado {
+    height: 100%;
+    width: 0%;
+    background: green;
+    transition: width 0.4s, background 0.4s;
+}
+
+#alerta-texto {
+    font-weight: bold;
+    margin-top: 8px;
 }
 
 
@@ -59,17 +71,26 @@ border-bottom: 1px solid #e4eee6;
 }
 
 
+.navbar {
+    width: 100%;
+    background: #2d7a2d;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
 
-.estado {
-margin-top: 25px;
-text-align: center;
+.navbar .titulo {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 
-.indicador {
-width: 18px;
-height: 18px;
-margin: auto;
-border-radius: 50%;
-background: #4caf50; 
-}
+
+
+
+
+
+
